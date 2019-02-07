@@ -1,0 +1,12 @@
+INSERT INTO books (author_id, title, description, price, created_at) VALUES(1, 'Andrés', 'Guzmán',4, '2018-01-01');
+INSERT INTO books (author_id, title, description, price, created_at) VALUES(2, 'Mr. John', 'Doe',4, '2018-01-05');
+INSERT INTO books (author_id, title, description, price, created_at) VALUES(4, 'Linus', 'Torvalds',4, '2018-01-06');
+INSERT INTO books (author_id, title, description, price, created_at) VALUES(4, 'Rasmus', 'Lerdorf',4, '2018-01-02');
+INSERT INTO books (author_id, title, description, price, created_at) VALUES(4, 'Erich', 'Gamma',4, '2018-01-06');
+INSERT INTO books (author_id, title, description, price, created_at) VALUES(3, 'Richard', 'Helm',4, '2018-01-04');
+INSERT INTO books (author_id, title, description, price, created_at) VALUES(3, 'Ralph', 'Johnson',4, '2018-01-03');
+INSERT INTO books (author_id, title, description, price, created_at) VALUES(3, 'John', 'Vlissides',4, '2018-01-30');
+INSERT INTO books (author_id, title, description, price, created_at) VALUES(3, 'Dr. James', 'Gosling',4, '2018-01-13');
+INSERT INTO books (author_id, title, description, price, created_at) VALUES(5, 'Magma', 'Lee',4, '2018-01-15');
+INSERT INTO books (author_id, title, description, price, created_at) VALUES(6, 'Tornado', 'Roe',4, '2018-01-17');
+INSERT INTO books (author_id, title, description, price, created_at) VALUES(7, 'Jade', 'Doe',4, '2018-01-20');

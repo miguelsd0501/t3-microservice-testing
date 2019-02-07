@@ -21,7 +21,7 @@ node {
             }
         }
          
-        stage("Tests and Deployment") {
+
             stage("Runing unit tests") {
                     try {
                         sh "./mvnw test -Punit"
@@ -34,13 +34,12 @@ node {
                      '**/target/surefire-reports/TEST-*UnitTest.xml'])
              }
              
-            stage("Staging") {
+            stage("Deployment") {
                 sh "pid=\$(lsof -i:8989 -t); kill -TERM \$pid "
                   + "|| kill -KILL \$pid"
                 withEnv(['JENKINS_NODE_COOKIE=dontkill']) {
                     sh 'nohup ./mvnw spring-boot:run -Dserver.port=8989 &'
                 }   
             }
-        }
 
 }

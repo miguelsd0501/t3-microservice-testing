@@ -2,7 +2,6 @@ node {
     stage 'Clone the project'
     git 'https://github.com/miguelsd0501/t3-microservice-testing.git'
    
-    dir('t3-microservice-testing') {
         stage("Compilation and Analysis") {
             parallel 'Compilation': {
                 sh "./mvnw clean install -DskipTests"
@@ -43,5 +42,5 @@ node {
                 }   
             }
         }
-    }
+
 }

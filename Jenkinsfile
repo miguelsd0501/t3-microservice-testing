@@ -13,7 +13,7 @@ node {
                     }
                     
                     withSonarQubeEnv('sonarqube') {
-                        sh "${env.scannerHome}/bin/sonar-scanner"
+                        sh "${scannerHome}/bin/sonar-scanner"
                     }
 
                     timeout(time: 10, unit: 'MINUTES') {

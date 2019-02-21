@@ -6,7 +6,7 @@ node {
             parallel 'Compilation': {
                 sh "./mvnw clean install -DskipTests"
             }, 'Static Analysis': {
-                stage("Checkstyle") {
+                stage("SonarQube Scanner") {
                     environment {
                         scannerHome = tool 'SonarQubeScanner'
                     }

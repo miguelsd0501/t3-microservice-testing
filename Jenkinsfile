@@ -7,17 +7,17 @@ node {
                 sh "./mvnw clean install -DskipTests"
             }, 'Static Analysis': {
                 stage("SonarQube Scanner") {
-                    
-                    environment {
-                        scannerHome = tool 'SonarQubeScanner'
-                    }
-                    
                     withSonarQubeEnv('sonarqube') {
-                        sh "${env.scannerHome}/bin/sonar-scanner"
-                    }
-
-                    timeout(time: 10, unit: 'MINUTES') {
-                        waitForQualityGate abortPipeline: true
+                      sh 'mvn sonar:sonar'
+                    } // SonarQube taskId is automatically attached to the pipeline context
+                    // No need to occupy a node
+                    stage("Quality Gate"){
+                      timeout(time: 1, unit: 'HOURS') { // Just in case something goes wrong, pipeline will be killed after a timeout
+                        def qg = waitForQualityGate() // Reuse taskId previously collected by withSonarQubeEnv
+                        if (qg.status != 'OK') {
+                          error "Pipeline aborted due to quality gate failure: ${qg.status}"
+                        }
+                      }
                     }
                 }
             }

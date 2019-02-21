@@ -12,15 +12,13 @@ node {
                         scannerHome = tool 'SonarQubeScanner'
                     }
                     
-                       steps {
-                            withSonarQubeEnv('sonarqube') {
-                                sh "${env.scannerHome}/bin/sonar-scanner"
-                            }
+                    withSonarQubeEnv('sonarqube') {
+                        sh "${env.scannerHome}/bin/sonar-scanner"
+                    }
 
-                            timeout(time: 10, unit: 'MINUTES') {
-                                waitForQualityGate abortPipeline: true
-                            }
-                        }
+                    timeout(time: 10, unit: 'MINUTES') {
+                        waitForQualityGate abortPipeline: true
+                    }
                 }
             }
         }

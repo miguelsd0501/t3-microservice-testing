@@ -28,7 +28,7 @@ node {
             stage("Deployment") {
                 
                 withEnv(['JENKINS_NODE_COOKIE=dontkill']) {
-                    sh 'nohup ./mvnw spring-boot:run -Dserver.port=8989 &'
+                    sh 'nohup ./mvnw spring-boot:run -Dspring-boot.run.arguments=--server.port=9001 &'
                 }   
             }
 

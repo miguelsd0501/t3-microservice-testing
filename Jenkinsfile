@@ -7,19 +7,7 @@ node {
                 sh "./mvnw clean install -DskipTests"
             }, 'Static Analysis': {
                 stage("SonarQube Scanner") {
-                    environment {
-                        scannerHome = tool 'SonarQubeScanner'
-                    }
-                    
-                    steps {
-                    withSonarQubeEnv('sonarqube') {
-                        sh "${scannerHome}/bin/sonar-scanner"
-                    }
 
-                    timeout(time: 10, unit: 'MINUTES') {
-                        waitForQualityGate abortPipeline: true
-                    }
-                    }
                 }
             }
         }
